@@ -1,0 +1,9 @@
+App URI
+http://gg-mrp.herokuapp.com/
+
+Git URI
+git@heroku.com:gg-mrp.git
+
+Set up app for local development
+git clone git@heroku.com:gg-mrp.git -o heroku
+
