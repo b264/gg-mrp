@@ -8,11 +8,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= yield %>
+<div id="header">
+  <%- unless (flash.notice.to_s.length < 1) then %>
+    <h2><%= flash.notice %></h2>
+    <br /><br />
+  <%- end %>
+</div>
+<div id="main_body">
+  <%= yield %>
+</div>
 <br/>
 <br/>
 <br/>
-<div id="w3c">
+<div id="footer">
   <%= link_to (image_tag 'HTML5.png', :alt => 'HTML5', :style => 'border:0;height:20px'), ('http://validator.w3.org/check?uri=' + request.original_url) %>
   <%= link_to (image_tag 'w3c_home.gif', :alt => 'W3C', :style => 'border:0;height:20px'), ('http://validator.w3.org/check?uri=' + request.original_url) %>
 </div>
