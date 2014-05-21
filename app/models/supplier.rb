@@ -22,4 +22,8 @@ class Supplier < ActiveRecord::Base
     end
     return true
   end
+  # class methods
+  def self.attrs
+    return Supplier.accessible_attributes
+  end
 end

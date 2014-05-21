@@ -21,4 +21,8 @@ class Part < ActiveRecord::Base
     end
     return true
   end
+  # class methods
+  def self.attrs
+    return Part.accessible_attributes
+  end
 end

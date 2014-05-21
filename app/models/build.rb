@@ -21,4 +21,8 @@ class Build < ActiveRecord::Base
     end
     return true
   end
+  # class methods
+  def self.attrs
+    return Build.accessible_attributes
+  end
 end

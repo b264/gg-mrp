@@ -2,7 +2,7 @@ class BuildsController < ApplicationController
   # database CRUD actions below
   def create
     @build= Build.new
-    fill_attribs_by_hash! @build, params[:movie]
+    fill_attribs_by_hash! @build, params[:build]
     action_notify @build.name, @build.validated_save
   end
   def show
@@ -25,6 +25,8 @@ class BuildsController < ApplicationController
     @build= Build.find_by_id(params[:id])
   end 
   def index
+    
+    @sorted_by_user= false
     # send to view
     @builds= Build.all
   end
@@ -49,5 +51,17 @@ class BuildsController < ApplicationController
     end
     redirect_to builds_path(), :method => :get
   end
-  
+  def fill_attribs_by_hash! (model_instance_object, hash)
+    model_instance_object.class.accessible_attributes.each { |attr|
+      unless attr.empty?
+        eval (%{
+          if hash.has_key? "#{attr}"
+            if model_instance_object.respond_to? "#{attr}="
+              model_instance_object.#{attr}= hash["#{attr}"]
+            end
+          end
+        })
+      end
+    }
+  end
 end

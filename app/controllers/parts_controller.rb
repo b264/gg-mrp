@@ -1,4 +1,4 @@
-class MoviesController < ApplicationController
+class PartsController < ApplicationController
   # database CRUD actions below
   def create
     @movie= Movie.new

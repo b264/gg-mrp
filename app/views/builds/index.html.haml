@@ -1,42 +1,28 @@
 - unless flash.notice.to_s.length < 1
   =flash.notice
   %br
-%h2=link_to 'Movie List', movies_path, :class => :link, :id => :all_movies_link
-= form_tag movies_path, :method => :get, :id => :ratings_form do
-  Include:
-  - @ratings.each do |rating, visible|
-    %label
-      = rating
-      - if @num_selected== 0
-        = check_box_tag rating, '1', true, :id => "ratings_#{rating}"
-      - else
-        = check_box_tag rating, '1', visible, :id => "ratings_#{rating}"
-  = submit_tag 'Refresh', :id => :ratings_submit
-%br
-%table#movies
+%h2=link_to 'Builds List', builds_path, :class => :link, :id => :all_builds_link
+%table#builds
   %thead
     %tr
-      - Movie.accessible_attributes.each do |attr|
+      - Build.attrs.each do |attr|
         -unless attr.empty?
           - if @sort_by== attr
-            -# if @sorted_by_user
-              -#%th.highlight= attr.to_s.titleize
-            %th.hilite= eval("link_to attr.to_s.titleize, movies_path(:sort_by => attr), :method => :get, :class => :link, :id => :#{attr.to_s}_header")
-            -# else
-              -#%th= attr.to_s.titleize
+            - if @sorted_by_user
+              %th.hilite= attr
+            - else
+              %th= attr
           - else
-            %th= eval("link_to attr.to_s.titleize, movies_path(:sort_by => attr), :method => :get, :class => :link, :id => :#{attr.to_s}_header")
+            %th= eval("link_to attr.to_s.titleize, builds_path(:sort_by => attr), :method => :get, :class => :link, :id => :#{attr.to_s}_header")
   %tbody
-    - @movies.each do |movie|
+    - @builds.each do |build|
       %tr
-        - Movie.accessible_attributes.each do |attr|
+        - Build.attrs.each do |attr|
           - unless attr.empty?
             - if attr== 'description'
-              %td= link_to "More about #{movie.title}", movie_path(movie), :class => :more_info_link
-            - elsif attr== 'release_date'
-              %td= movie.date_formatted
+              %td= link_to "More about #{build.name}", build_path(build), :class => :more_info_link
             - else
-              %td= eval("movie.#{attr}")
-= link_to 'Create new movie', new_movie_path, :method => :get, :class => :link, :id => :new_movie_link
+              %td= eval("build.#{attr}")
+= link_to 'Create new build', new_build_path, :method => :get, :class => :link, :id => :new_build_link
 %br
-= link_to 'Reset filter and sort settings', movies_path(:session_type => :new), :method => :get, :class => :link, :id => :reset_session
+= link_to 'Reset filter and sort settings', builds_path(:session_type => :new), :method => :get, :class => :link, :id => :reset_session

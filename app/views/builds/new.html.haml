@@ -1,0 +1,16 @@
+= provide(:title, 'New Build')
+%h2 Create new build
+= form_tag builds_path do
+  %table#new_build
+    %thead
+      %tr#labels
+        - Build.attrs.each do |attr|
+          - unless attr.empty?
+            %th= attr.to_s
+    %tbody
+      %tr#fields
+        - Build.attrs.each do |attr|
+          - unless attr.empty?
+            %td.title= text_field :build, attr.to_s
+  = submit_tag 'Save', :name => 'user_selection'
+= link_to 'Back to Index', builds_path, :method => :get
