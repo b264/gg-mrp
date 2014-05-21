@@ -1,4 +1,9 @@
 GgMrp::Application.routes.draw do
+  resources :builds
+  resources :suppliers
+  resources :parts
+  root :to => redirect('/builds')
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
