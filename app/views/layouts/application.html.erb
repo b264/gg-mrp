@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GgMrp</title>
+  <meta charset='utf-8'/>
+  <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
 <%= yield %>
-
+<br/>
+<br/>
+<br/>
+<div id="w3c">
+  <%= link_to (image_tag 'HTML5.png', :alt => 'HTML5', :style => 'border:0;height:20px'), ('http://validator.w3.org/check?uri=' + request.original_url) %>
+  <%= link_to (image_tag 'w3c_home.gif', :alt => 'W3C', :style => 'border:0;height:20px'), ('http://validator.w3.org/check?uri=' + request.original_url) %>
+</div>
 </body>
 </html>
