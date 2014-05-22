@@ -9,10 +9,18 @@
 </head>
 <body>
 <div id="header">
-  <%- unless (flash.notice.to_s.length < 1) then %>
-    <h2><%= flash.notice %></h2>
-    <br /><br />
-  <%- end %>
+  <p class="notice">
+    <%- unless (flash.notice.to_s.length < 1) then %>
+      <h2><%= flash.notice %></h2>
+      <br /><br />
+    <%- end %>
+  </p>
+  <p class="alert">
+    <%- unless (flash.alert.to_s.length < 1) then %>
+      <h1><%= flash.alert %></h1>
+      <br /><br />
+    <%- end %>
+  </p>
 </div>
 <div id="main_body">
   <%= yield %>

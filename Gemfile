@@ -33,6 +33,9 @@ group :development, :test, :production do
   gem 'pg'
 end
 
+# user authentication
+gem 'devise', '~> 3.2.4'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

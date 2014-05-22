@@ -1,4 +1,6 @@
 GgMrp::Application.routes.draw do
+  devise_for :users
+
   resources :builds
   resources :suppliers
   resources :parts
