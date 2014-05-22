@@ -1,5 +1,6 @@
 class Build < ActiveRecord::Base
   attr_accessible :name, :gg_id, :ext_id, :description
+  has_many :parts
   
   # instance methods
   def validated_save
