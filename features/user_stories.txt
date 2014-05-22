@@ -1,0 +1,66 @@
+Supply chain manager wants to get a dashboard because he wants all the relevant data in one place.
+Supply chain manager wants the dashboard to show which parts are on schedule and which are not because {reason}.
+An arriving shipment needs to be marked not on-schedule if it has not been checked-in by the expected date, to keep reports accurate.
+To allow inventory tracking, warehouse manager wants part numbers to be checked into inventory as they arrive.
+To allow inventory tracking, warehouse manager wants part numbers to be checked out of inventory as they are used.
+To speed up data entry, warehouse manager wants check in/out to allow for barcode scanning.
+To keep forecasting accurate, salesman wants parts to be updated in the schedule as they arrive & depart.
+
+Queued:
+In order to estimate product lead times, an engineer wants an aggregate lead time on a selected group of parts.
+In order to print out purchase orders in bulk, a buyer wants to generate POs from a list of parts.
+In order to wait until absolutely necessary to order, a buyer's POs should have an order_by date on them.
+In order to eliminate manual data entry, an engineer wants to import lists of parts in *.csv format.
+As a busy person, I want missing lead-times to be ___ default value so that I can use the system immediately.
+As someone who hates fixing things manually, I want any errors to resolve by throwing a dialogue requesting the needed information on the spot.
+
+These have been completed and feedback is welcome.
+To accommodate multiple users in multiple locations, the system should be cloud based/accessible by multiple users in multiple places. PASS
+
+
+
+
+
+You had some good ones in there, which I left.  Then, I took some out, and added a couple more.
+
+To accommodate multiple users in multiple locations, the system should be cloud based/accessible by multiple users in multiple places.
+In order to estimate product lead times, an engineer wants an aggregate lead time on a selected group of parts.
+In order to print out purchase orders in bulk, a buyer wants to generate POs from a list of parts.
+In order to wait until absolutely necessary to order, a buyer's POs should have an order_by date on them.
+In order to eliminate manual data entry, an engineer wants to import lists of parts in *.csv format.
+As a busy person, I want missing lead-times to be ___ default value so that I can use the system immediately.
+As someone who hates fixing things manually, I want any errors to resolve by throwing a dialogue requesting the needed information on the spot.
+As a busy person, I want to be able to quickly check on the overall schedule by getting a dashboard/list/graphic that shows which parts are on schedule and which are not.
+To help facilitate the above, I want part numbers to be checked into inventory (possibly bar code scanned in the future) as they arrive, and updated in the schedule.
+
+
+On Mon, May 12, 2014 at 1:12 AM, B <> wrote:
+
+    Matt,
+    So, in designing this cloud app I would like to have a bit more information.  If you could provide one or more user stories it would help me [and you] a lot.
+
+    So for example it would follow this format. (BDD/connextra format) (These 3 are approximately equivalent)
+
+    As a {stakeholder}, I want {feature} so that {benefit}.
+    In order to {benefit}, a {stakeholder} wants to {feature}.
+    As a {kind of stakeholder}, so that {I can achieve some goal}, I want to {do some task}.
+
+    examples:
+    As a movie fan, so that I can share a movie with other fans, I want to add a movie to an online database.
+    In order to estimate product lead times, an engineer wants an aggregate lead time on a selected group of parts.
+    In order to print out purchase orders in bulk, a buyer wants to generate POs from a list of parts.
+    In order to wait until absolutely necessary to order, a buyer's POs should have an order_by date on them.
+    In order to eliminate manual data entry, an engineer wants to import lists of parts in *.csv format.
+    As a busy person, I want missing lead-times to be ___ default value so that I can use the system immediately.
+    As a mega-corporation, so that thousands of folks can log-in simultaneously, I want the system to be distributed and redundant.
+    In order to minimize cost or lead-time, a production engineer wants to be able to select from multiple equivalent parts for a product build.
+    As someone who hates interrupting dialogues, I want any errors to cause a task failure, so I can fix them manually if desired.
+    As someone who hates fixing things manually, I want any errors to resolve by throwing a dialogue requesting the needed information on the spot.
+    As a project supervisor, I want a log of activity so I can monitor my department.
+
+    So those were just examples.  If you could quickly throw some of these together that are "most important to you" it will help this greatly.  Any that are less important would help too. You can call on the voice line if it's easier for you and I'll do the typing. 
+
+    Keep in mind we're not trying to do a moon mission right away.  In agile development, multiple products will be delivered, each better than the last, in rapid succession, instead of waiting until the entire project is complete.  The database will be retained from the last iteration.  So you can add more at any time, and ideally after you see a prototype of the previous iteration.
+
+    -B
+
