@@ -5,8 +5,8 @@ Feature: display the dashboard
 
 Background: user is logged in
   Given the login credentials
-  | user          | password |
-  | TestSystem    | pword    |
+  | user               | password |
+  | test@the.system    | password    |
   And I have logged in
 
 Scenario: Dashboard selected

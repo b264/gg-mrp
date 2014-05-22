@@ -1,4 +1,8 @@
 class BuildsController < ApplicationController
+  # rails 4.x code
+  #before_action :authenticate_user!, :except => [:index, :show]
+  # rails 3.x code
+  before_filter :authenticate_user!, :except => [:index, :show]
   # database CRUD actions below
   def create
     @build= Build.new
