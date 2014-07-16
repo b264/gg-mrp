@@ -4,8 +4,8 @@ Feature: display the dashboard
   I want to get a dashboard
 
 Background: user is logged in
-  Given the login credentials
-  | user               | password |
+  Given the following user exists
+  | user               | password    |
   | test@the.system    | password    |
   And I have logged in
 

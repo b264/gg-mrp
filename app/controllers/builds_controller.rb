@@ -11,6 +11,7 @@ class BuildsController < ApplicationController
   end
   def show
     @build= Build.find_by_id(params[:id])
+    @parts= Part.all
   end
   def update
     @build= Build.find_by_id(params[:id])
@@ -36,7 +37,7 @@ class BuildsController < ApplicationController
   end
   # other routes
   def action_
-    
+    raise
   end
   # methods without URI routing assigned
   def action_notify(name, flag)

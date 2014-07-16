@@ -1,4 +1,4 @@
-%h2=link_to 'Builds List', builds_path, :class => :link, :id => :all_builds_link
+-#%h2=link_to 'Builds List', builds_path, :class => :link, :id => :all_builds_link
 %table#builds
   %thead
     %tr
@@ -11,15 +11,18 @@
               %th= attr
           - else
             %th= eval("link_to attr.to_s.titleize, builds_path(:sort_by => attr), :method => :get, :class => :link, :id => :#{attr.to_s}_header")
+      %th More
   %tbody
     - @builds.each do |build|
       %tr
         - Build.attrs.each do |attr|
           - unless attr.empty?
-            - if attr== 'description'
-              %td= link_to "More about #{build.name}", build_path(build), :class => :more_info_link
-            - else
-              %td= eval("build.#{attr}")
+            -# if attr== 'description'
+              -#%td= link_to "More about #{build.name}", build_path(build), :class => :more_info_link
+            -# else
+              -#%td= eval(%Q{if build.respond_to? "#{attr}" then build.#{attr} else '' end})
+            %td= eval(%Q{if build.respond_to? "#{attr}" then build.#{attr} else '' end})
+        %td= link_to "More about #{build.name}", build_path(build), :class => :more_info_link
 = link_to 'Create new build', new_build_path, :method => :get, :class => :link, :id => :new_build_link
 %br
 = link_to 'Reset filter and sort settings', builds_path(:session_type => :new), :method => :get, :class => :link, :id => :reset_session

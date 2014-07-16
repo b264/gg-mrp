@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20140522210334) do
     t.string   "ext_id"
     t.text     "description"
     t.datetime "added_to_db"
+    t.datetime "due_by"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

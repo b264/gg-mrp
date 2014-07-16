@@ -15,6 +15,7 @@ module NavigationHelpers
 
     when /^the (GG-MRP )?home\s?page$/ then '/builds'
     when /^the builds page$/ then '/builds'
+    when /^the dashboard$/ then '/'
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

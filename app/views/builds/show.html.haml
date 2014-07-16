@@ -1,0 +1,56 @@
+- provide(:title, @build.name)
+%table#build_table
+  %thead
+    %tr
+      - @build.attrs.each do |attr|
+        - unless attr.empty?
+          %td= attr.titleize
+  %tbody
+    %tr
+      - @build.attrs.each do |attr|
+        - unless attr.empty?
+          %td= eval("@build.#{attr.to_s}")
+%br
+%br
+= "Parts in #{@build.name}:"
+%br
+%table#parts_table
+  %thead
+    %tr
+      - Part.attrs.each do |attr|
+        - unless attr.empty?
+          %td= attr.titleize
+  %tbody
+    - @parts.each do |part|
+      %tr
+        - Part.attrs.each do |attr|
+          - unless attr.empty?
+            %td= eval("part.#{attr.to_s}")
+=# link_to "Remove part from #{@build.name}", new_part_path {{no new part path}}(:build_id => @build.id), :method => :get, :class => :link, :id => :new_part_link
+
+%br
+%br
+=# collection_select :part, :build_id, Part.all, :id, :name, :prompt => :true
+
+
+%br
+%br
+
+%br
+%br
+= "All Parts:"
+%br
+%table#parts_table
+  %thead
+    %tr
+      - Part.attrs.each do |attr|
+        - unless attr.empty?
+          %td= attr.titleize
+  %tbody
+    - @parts.each do |part|
+      %tr
+        - Part.attrs.each do |attr|
+          - unless attr.empty?
+            %td= eval("part.#{attr.to_s}")
+=# @build.id
+=# link_to "Add part to #{@build.name}", new_part_path {{no new part path}} (:build_id => @build.id), :method => :get, :class => :link, :id => :new_part_link

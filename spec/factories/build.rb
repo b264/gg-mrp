@@ -1,3 +1,4 @@
+=begin
 FactoryGirl.define do
   factory :build do
     title 'A Fake Build' # default values
@@ -10,3 +11,4 @@ FactoryGirl.define do
     # etc.
   #end
 END
+=end

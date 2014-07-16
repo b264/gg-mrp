@@ -1,9 +1,22 @@
 GgMrp::Application.routes.draw do
   devise_for :users
-  resources :builds
-  resources :suppliers
-  resources :parts
-  root :to => redirect('/builds')
+  #resources :builds
+  #resources :suppliers
+  #resources :parts
+  root :to => 'builds#index'
+  resources :builds #, :has_many => [:parts]
+  #resources :parts #, :has_many => [:suppliers, :builds]
+  resources :suppliers #, :has_many => [:parts]
+  
+  resources :builds do
+    resources :uses
+  end
+  #resources :parts do
+  #  resources :uses
+  #end
+  resources :suppliers do
+    resources :parts
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

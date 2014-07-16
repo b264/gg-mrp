@@ -1,29 +1,7 @@
 class Build < ActiveRecord::Base
-  attr_accessible :name, :gg_id, :ext_id, :description
-  has_many :parts
+  attr_accessible :name, :gg_id, :ext_id, :due_by, :description
+  has_many :parts, :dependent => :destroy
   
-  # instance methods
-  def validated_save
-    if self.name.empty? or blacklisted_value? self.name
-      # refuse to save
-      return false
-    else
-      # save to db
-      return self.save
-    end
-  end
-  def blacklisted_value? (value)
-    # these are reserved and will cause bugs if used
-    if    value== 'sort_by'
-    elsif value== 'utf8'
-    elsif value== 'commit'
-    else
-      return false
-    end
-    return true
-  end
-  # class methods
-  def self.attrs
-    return Build.accessible_attributes
-  end
+  
+  before_save '!(self.name.empty? or blacklisted_value? self.name)'
 end

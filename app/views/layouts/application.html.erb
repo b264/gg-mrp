@@ -1,46 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset='utf-8'/>
-  <title><%= full_title(yield(:title)) %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div id="header">
-  <p class="notice">
-    <%- unless flash.notice.to_s.length < 1 %>
-      <h2><%= flash.notice %></h2>
-      <br /><br />
-    <%- end %>
-  </p>
-  <p class="alert">
-    <%- unless flash.alert.to_s.length < 1 %>
-      <h1><%= flash.alert %></h1>
-      <br /><br />
-    <%- end %>
-  </p>
-  <div id= "navbar">
-    <%= link_to "Home", builds_path %>
-    <%- if user_signed_in? %>
-      <%= link_to "Account: "+ current_user.email, edit_user_registration_path %>
-      <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
-    <%- else %>
-      <%= link_to "Create a new account", new_user_registration_path %>
-      <%= link_to "Login", new_user_session_path %>
-    <%- end %>
-  </div>
-</div>
-<div id="main_body">
-  <%= yield %>
-</div>
-<br/>
-<br/>
-<br/>
-<div id="footer">
-  <%= link_to (image_tag 'HTML5.png', :alt => 'HTML5', :style => 'border:0;height:20px'), ('http://validator.w3.org/check?uri=' + request.original_url) %>
-  <%= link_to (image_tag 'w3c_home.gif', :alt => 'W3C', :style => 'border:0;height:20px'), ('http://validator.w3.org/check?uri=' + request.original_url) %>
-</div>
-</body>
+  <head>
+    <meta charset='utf-8'/>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="header">
+      <p class="notice">
+        <%- unless flash.notice.to_s.length < 1 %>
+          <h2><%= flash.notice %></h2>
+          <br /><br />
+        <%- end %>
+      </p>
+      <p class="alert">
+        <%- unless flash.alert.to_s.length < 1 %>
+          <h1><%= flash.alert %></h1>
+          <br /><br />
+        <%- end %>
+      </p>
+      <div id= "navbar">
+        <%= link_to "Home", builds_path %>
+        <%- if user_signed_in? %>
+          <%= link_to "Account: "+ current_user.email, edit_user_registration_path %>
+          <%= link_to "Logout", destroy_user_session_path, :method => :delete %>
+        <%- else %>
+          <%= link_to "Create a new account", new_user_registration_path %>
+          <%= link_to "Login", new_user_session_path %>
+        <%- end %>
+      </div>
+    </div>
+    <div id="main_body">
+      <%= yield %>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+    <div id="footer">
+      <%= link_to (image_tag 'HTML5.png', :alt => 'HTML5', :style => 'border:0;height:20px'), ('http://validator.w3.org/check?uri=' + request.original_url) %>
+      <%= link_to (image_tag 'w3c_home.gif', :alt => 'W3C', :style => 'border:0;height:20px'), ('http://validator.w3.org/check?uri=' + request.original_url) %>
+    </div>
+  </body>
 </html>

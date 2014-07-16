@@ -1,11 +1,12 @@
 class Builds < ActiveRecord::Migration
   def up
-      create_table 'builds' do |b|
+    create_table 'builds' do |b|
       b.string 'name'
       b.string 'gg_id'
       b.string 'ext_id'
       b.text 'description'
       b.datetime 'added_to_db'
+      b.datetime 'due_by'
       #add fields to let rails automatically track when records are add/modified
       b.timestamps
     end
